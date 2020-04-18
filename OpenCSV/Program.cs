@@ -43,6 +43,21 @@ namespace OpenCSV
                 Console.WriteLine($"{user.Name} : {user.Email} : {user.PhoneNo} : {user.Country}");
             }
 
+            //New user data.
+            users.Add(new CSVUsers { Name="Shubham Deulkar",Email="Shubhamdeulakr27@gmail.com", PhoneNo="+91-88787985652",Country="India" });
+            
+            //List to to store new as well as old user data.
+            List<string> output = new List<string>();
+
+            //Storing the Whole User Data to the output List.
+            foreach (CSVUsers user in users)
+            {
+                output.Add($"{user.Name},{user.Email},{user.PhoneNo},{user.Country}");
+            }
+
+            //WriteLine 
+            File.WriteAllLines(filepath,output);
+            Console.WriteLine("All Entries Are Written");
         }
     }
 }
